@@ -1,0 +1,34 @@
+.skills {
+  max-width: 200px;
+  height: 25px;
+}
+.profile-data{
+  margin-top: 2rem;
+}
+
+.example-card {
+  min-height: 200px !important; 
+  min-width: 50px !important;
+ }
+
+ .mat-card  {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2)
+   !important;  }
+
+.example-header-image {
+  background-size: cover;
+  margin-right: 55px;
+  width: 200px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+div button {
+    float: right;
+}
+
+.expCard{
+  max-height: 350px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

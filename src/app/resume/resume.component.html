@@ -1,0 +1,137 @@
+<div fxLayout="column"   fxLayout.xs="row"   fxLayoutGap="32px">
+  <div fxLayout="row" class="profile-data"    fxLayoutGap="50px" fxLayout.xs="column"> 
+    <mat-card   fxFlex="20%"   
+   class="example-card z-depth-1-half"  >
+    <mat-card-header >
+        <img matListAvatar  src="/assets/Profile-pic.JPG" onerror="this.src='https://cdn0.iconfinder.com/data/icons/user-interface-vol-3-12/66/68-512.png';"   class="example-header-image"  >
+
+      <mat-card-title> 
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="row">
+        {{myProfile.firstname}}   {{myProfile.lastName}}
+ 
+        </mat-card-content>
+  </mat-card>
+  <mat-card class="z-depth-1-half"   fxFlex="80%" >
+    <div   >
+  <mat-tab-group>
+      <mat-tab label="Resume Details" > 
+  
+   
+            <span> <mat-icon>email</mat-icon> {{myProfile.email}}</span> 
+            <span> <mat-icon>location_on</mat-icon>{{myProfile.address}}</span> 
+
+         </mat-tab>
+        
+    </mat-tab-group>
+  </div>
+  </mat-card>
+  
+  </div>
+
+  <mat-card  class="z-depth-1-half" >
+
+      <div>
+          <span><mat-icon>assessment</mat-icon><strong>Skills</strong></span>
+          <button  class="addbtn"  color="primary"   mat-raised-button (click)="addSkills()" >add skill </button>
+        </div>
+  <mat-card-content>
+        <mat-chip-list   class="mat-chip-list-stacked" *ngFor="let skill of skills" >
+          <mat-chip class="skills"    color="primary" fxLayout="row" fxLayout.xs="column"    fxLayoutGap="7px">
+            <div fxFlex="20%">
+            <span>{{skill.name}}</span>
+         </div>
+        <br>
+          <bar-rating  [max]="5"   
+            [(rate)]="skill.rating"
+           disabled></bar-rating>
+
+   
+          <mat-icon     matChipRemove (click)="deleteSkill(skill.skillID)" >cancel</mat-icon>
+         
+      </mat-chip> 
+        </mat-chip-list>
+</mat-card-content>
+  </mat-card>
+    <mat-card  class="z-depth-1-half">
+        <!-- <mat-card-header>
+        </mat-card-header> -->
+      <mat-card-content >
+        <div  fxLayout="column">
+              <span><mat-icon>school</mat-icon><strong>Experiences professionelles</strong></span>
+            </div>
+              <button  class="addbtn" mat-raised-button color="primary"   (click)="addExp()"    >add exp </button>
+
+               <div   fxLayout="row" fxFill >
+                <mat-list>
+                  <mat-list-item  *ngFor="let exp of experiences"  fxLayout="column" fxLayoutAlign="space-evenly start" >
+                  <div   *ngIf="exp.experienceType"   >
+                    <mat-card fxLayout="row"  >
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start" >
+                     <h3  mat-line><strong>{{exp.title}}</strong></h3>
+                     <p > {{exp.description}} </p>
+                     </div>
+                     <p mat-line>  Start date: {{exp.startDate |  date:'medium'}} </p>
+                     <p mat-line>  End date: {{exp.endDate |  date:'medium'}} </p>
+
+                    <mat-card-actions>
+                      <button  (click)="deleteExp(exp.experienceID)" mat-fab color="accent" aria-label="delete exp">
+                        <mat-icon>delete</mat-icon> 
+                       </button>
+                    </mat-card-actions>
+                  </mat-card > 
+                  </div>
+                    </mat-list-item>
+                    <mat-divider ></mat-divider>
+                </mat-list>
+          </div>
+          
+          </mat-card-content>
+        </mat-card>
+
+
+        <mat-card  class="z-depth-1-half">
+          <!-- <mat-card-header>
+          </mat-card-header> -->
+        <mat-card-content >
+          <div  fxLayout="row">
+                <span><mat-icon>work</mat-icon><strong>Experiences academique</strong></span>
+              </div>
+                <button  class="addbtn" mat-raised-button color="primary"   (click)="addExp()"    >add exp </button>
+      
+                 <div   fxLayout="row" fxFill >
+                  <mat-list>
+                    <mat-list-item  *ngFor="let exp of experiences"  fxLayout="column" fxLayoutAlign="space-evenly start" >
+                    <div   *ngIf="!exp.experienceType"   >
+                      <mat-card fxLayout="row"  >
+                      <div fxLayout="column" fxLayoutAlign="space-evenly start" >
+                       <h3  mat-line><strong>{{exp.title}}</strong></h3>
+                       <p > {{exp.description}} </p>
+                       </div>
+                       <p mat-line>  Start date: {{exp.startDate |  date:'medium'}} </p>
+                       <p mat-line>  End date: {{exp.endDate |  date:'medium'}} </p>
+      
+                      <mat-card-actions>
+                        <button  (click)="deleteExp(exp.experienceID)" mat-fab color="accent" aria-label="delete exp">
+                          <mat-icon>delete</mat-icon> 
+                         </button>
+                      </mat-card-actions>
+                    </mat-card > 
+                    </div>
+      
+                      </mat-list-item>
+                      <mat-divider ></mat-divider>
+                  </mat-list>
+      
+            </div>
+            
+            </mat-card-content>
+          </mat-card>
+  
+  </div>
+  <!-- </div> -->
+ 
+
+
+  

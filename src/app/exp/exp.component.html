@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>add Experience</h2>
+<div mat-dialog-content  fxLayout="column" fxLayoutAlign="center stretch">
+
+<form [formGroup]="expForm"   >
+
+    <mat-form-field  class="example-full-width"   >
+
+    <input matInput  placeholder="Title" formControlName="Title" >
+</mat-form-field>
+
+
+<mat-form-field  class="example-full-width">
+    <textarea matInput  rows="4"  placeholder="Description" formControlName="Description"></textarea>
+</mat-form-field>
+
+    <section class="example-section" >
+        <label class="example-margin">ExperienceType:</label>
+        <mat-radio-group   formControlName="ExperienceType">
+          <mat-radio-button class="example-margin" value="1">Professional</mat-radio-button>
+          <mat-radio-button  class="example-margin" value="0">Academic</mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+    <input matInput   formControlName="StartDate"  [matDatepicker]="picker" placeholder="start"  >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <input matInput  formControlName="EndDate"  [matDatepicker]="picker1" placeholder="end"  >
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+ 
+
+</form>
+    <div>
+        <div fxLayout="row"  fxLayoutAlign="end center" >
+       <button type="submit"     [disabled]="!expForm.valid"
+       mat-raised-button color="primary"  (click)="addExp()" >add Experience</button>
+       <button  mat-raised-button   [mat-dialog-close]="true" >cancel</button>
+        </div>
+    </div>
+</div>

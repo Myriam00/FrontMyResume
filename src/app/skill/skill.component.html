@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>add Skill</h2>
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="center stretch">
+        <input  matInput [(ngModel)]="Name"  placeholder="skill">
+        <bar-rating name="rating" [(ngModel)]="Rating"  class="rate-body"   [max]="5" required ></bar-rating>
+</div>
+<div mat-dialog-actions>
+<button  mat-raised-button color="primary"  (click)="AddSkill()" >rate</button>
+<button  mat-raised-button   [mat-dialog-close]="true" >cancel</button>
+</div>
